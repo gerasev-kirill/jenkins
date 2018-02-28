@@ -18,6 +18,7 @@ ENV JENKINS_VERSION=2 \
     HOME=/var/lib/jenkins \
     JENKINS_HOME=/var/lib/jenkins \
     JENKINS_UC=https://updates.jenkins.io \
+    JENKINS_PASSWORD=ihateredhat \
     LANG=en_US.UTF-8 \
     LC_ALL=en_US.UTF-8
 
@@ -37,6 +38,10 @@ RUN curl https://pkg.jenkins.io/redhat-stable/jenkins.repo -o /etc/yum.repos.d/j
     INSTALL_PKGS="dejavu-sans-fonts rsync gettext git tar zip unzip dumb-init java-1.8.0-openjdk java-1.8.0-openjdk.i686 java-1.8.0-openjdk-devel java-1.8.0-openjdk-devel.i686 jenkins-2.89.3-1.1" && \
     yum -y --setopt=tsflags=nodocs install $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
+    yum install -y python27 gcc-c++ make && \
+    curl --silent --location https://rpm.nodesource.com/setup_6.x | bash - && \
+    yum install -y nodejs && \
+    npm install -y -g grunt-cli@1.2.0 grunt@0.4.5 bower && \
     yum clean all  && \
     localedef -f UTF-8 -i en_US en_US.UTF-8
 

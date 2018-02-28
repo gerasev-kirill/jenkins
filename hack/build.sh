@@ -12,7 +12,8 @@ OS=$1
 VERSION=$2
 
 DOCKERFILE_PATH=""
-BASE_IMAGE_NAME="docker.io/openshift/jenkins"
+#BASE_IMAGE_NAME="docker.io/openshift/jenkins"
+BASE_IMAGE_NAME="docker.io/ihateredhat/jen"
 RHEL_BASE_IMAGE_NAME="registry.access.redhat.com/openshift3/jenkins"
 
 # Cleanup the temporary Dockerfile created by docker build with version
@@ -73,6 +74,7 @@ for dir in ${dirs}; do
     if [[ $? -eq 0 ]] && [[ "${TAG_ON_SUCCESS}" == "true" || "${dir}" == "slave-base" ]]; then
       echo "-> Re-tagging ${IMAGE_NAME} image to ${IMAGE_NAME%"-candidate"}"
       docker tag $IMAGE_NAME ${IMAGE_NAME%"-candidate"}
+      docker push ihateredhat/$IMAGE_NAME
     fi
   fi
 
