@@ -49,6 +49,9 @@ RUN mkdir -p /var/build/cms/
 COPY package*.json /var/build/cms/
 RUN cd /var/build/cms && npm install
 
+RUN curl -sSL https://sdk.cloud.google.com | bash
+ENV PATH $PATH:/root/google-cloud-sdk/bin
+
 
 COPY ./contrib/openshift /opt/openshift
 COPY ./contrib/jenkins /usr/local/bin
@@ -97,6 +100,8 @@ RUN /usr/local/bin/install-plugins.sh /opt/openshift/base-plugins.txt && \
     /usr/local/bin/fix-permissions /var/log
 
 VOLUME ["/var/lib/jenkins"]
+
+RUN rm -rf /var/cache/yum
 
 USER 1001
 ENTRYPOINT ["/usr/bin/dumb-init", "--"]
