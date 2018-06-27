@@ -1,0 +1,32 @@
+{
+  "name": "lb_kgerasev2",
+  "version": "1.0.0",
+  "main": "",
+  "scripts": {
+    "grunt": "grunt"
+  },
+  "dependencies": {
+    "angular-template-inline-js": "^0.1.6",
+    "grunt": "^0.4.5",
+    "grunt-angular-gettext": "git+https://github.com/gerasev-kirill/grunt-angular-gettext.git",
+    "grunt-angular-template-inline-js": "^0.1.1",
+    "grunt-contrib-coffee": "^1.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-less": "^1.4.1",
+    "grunt-contrib-pug": "^1.0.0",
+    "grunt-contrib-uglify": "^3.0.0",
+    "grunt-less-imports": "^1.2.2",
+    "grunt-ng-annotate": "^3.0.0",
+    "grunt-replace": "^1.0.1",
+    "grunt-script-link-tags": "github:jekkos/grunt-script-link-tags",
+    "grunt-simple-watch": "^0.1.3",
+    "grunt-wiredep": "^3.0.1",
+    "lb-cms-helpers": "git+https://gerasev_kirill@bitbucket.org/gerasev_kirill/lb-cms-helpers.git"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "description": "lb_kgerasev2"
+}

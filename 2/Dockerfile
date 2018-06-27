@@ -45,6 +45,11 @@ RUN curl https://pkg.jenkins.io/redhat-stable/jenkins.repo -o /etc/yum.repos.d/j
     yum clean all  && \
     localedef -f UTF-8 -i en_US en_US.UTF-8
 
+RUN mkdir -p /var/build/cms/
+COPY package*.json /var/build/cms/
+RUN cd /var/build/cms && npm install
+
+
 COPY ./contrib/openshift /opt/openshift
 COPY ./contrib/jenkins /usr/local/bin
 ADD ./contrib/s2i /usr/libexec/s2i
